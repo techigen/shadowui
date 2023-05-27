@@ -1,0 +1,21 @@
+{
+  "name": "shadowui",
+  "version": "0.0.1",
+  "description": "web-components components",
+  "scripts": {
+    "preinstall": "npx only-allow pnpm"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/techigen/shadowui.git"
+  },
+  "keywords": [
+    "web-components",
+    "web library"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/techigen/shadowui#readme",
+  "dependencies": {
+    "typescript": "^5.0.4"
+  }
+}
