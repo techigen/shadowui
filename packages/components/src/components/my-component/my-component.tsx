@@ -3,7 +3,10 @@ import { format } from '../../utils';
 
 @Component({
   tag: 'my-component',
-  styleUrl: 'my-component.css',
+  styleUrls: {
+    default: 'my-component.pcss',
+    motion: 'index.pcss',
+  },
   shadow: true,
 })
 export class MyComponent {
@@ -27,6 +30,11 @@ export class MyComponent {
   }
 
   render() {
-    return <div class="test">Hello, World! I'm {this.getText()}</div>;
+    console.log(this);
+    return (
+      <div class="out bg-indigo-500 p-12 rounded-lg">
+        <div class="test animate__animated animate__bounce text-white">Hello, World! I'm {this.getText()}</div>
+      </div>
+    );
   }
 }
