@@ -1,10 +1,12 @@
 import { Config } from '@stencil/core';
 import { postcss } from '@stencil-community/postcss';
+import { sass } from '@stencil/sass';
 import autoprefixer from 'autoprefixer';
-import tailwind, { tailwindHMR } from 'stencil-tailwind-plugin';
 
 export const config: Config = {
   namespace: 'shadow-ui',
+  srcDir: 'src',
+  globalScript: './src/common/global.ts',
   outputTargets: [
     {
       type: 'dist',
@@ -21,20 +23,14 @@ export const config: Config = {
       serviceWorker: null, // disable service workers
     },
   ],
-  globalScript: './src/common/global.ts',
   plugins: [
+    sass({
+      injectGlobalPaths: [
+        'src/common/style/variables.scss',
+      ]
+    }),
     postcss({
       plugins: [autoprefixer()]
-    }),
-    tailwind({
-      minify: true,
-      tailwindConf: {
-        content: ['./src/**/*.{ts,tsx,html}'],
-        theme: {
-          extend: {},
-        },
-      }
-    }),
-    tailwindHMR(),
+    })
   ]
 };

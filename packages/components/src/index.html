@@ -11,7 +11,12 @@
 </head>
 
 <body>
-  <my-component mode="motion" first="Stencil" last="'Don't call me a framework' JS"></my-component>
+  <shadow-button type="primary" onClickk="javascript: console.log('确认')" text="确认"></shadow-button>
+  <shadow-button type="default" onClick="javascript: console.log('取消')" text="取消"></shadow-button>
+  <shadow-button type="primary" onClick="javascript: console.log('确认')" text="disabled确认" disabled="true">
+  </shadow-button>
+  <shadow-button type="default" onClick="javascript: console.log('取消')" text="disabled取消" disabled="true">
+  </shadow-button>
 </body>
 
 </html>

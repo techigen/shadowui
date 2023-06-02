@@ -1,0 +1,10 @@
+@import "../../../common/style/variables.scss";
+@import "./common.scss";
+
+:host {
+  display: block;
+}
+.shadow-component__button {
+  background-color: $primaryColor;
+  color: $primaryTextColor;
+}

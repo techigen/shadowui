@@ -6,56 +6,61 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
+    interface ShadowButton {
         /**
-          * The first name
+          * button "disablity", when it is disabled, you can now click it
          */
-        "first": string;
+        "disabled": string;
         /**
-          * The last name
+          * button inner text
          */
-        "last": string;
+        "text": string;
         /**
-          * The middle name
+          * button mode options: default | primary
          */
-        "middle": string;
+        "type": string;
     }
 }
+export interface ShadowButtonCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLShadowButtonElement;
+}
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLShadowButtonElement extends Components.ShadowButton, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLShadowButtonElement: {
+        prototype: HTMLShadowButtonElement;
+        new (): HTMLShadowButtonElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "shadow-button": HTMLShadowButtonElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
+    interface ShadowButton {
         /**
-          * The first name
+          * button "disablity", when it is disabled, you can now click it
          */
-        "first"?: string;
+        "disabled"?: string;
+        "onOnClickk"?: (event: ShadowButtonCustomEvent<any>) => void;
         /**
-          * The last name
+          * button inner text
          */
-        "last"?: string;
+        "text"?: string;
         /**
-          * The middle name
+          * button mode options: default | primary
          */
-        "middle"?: string;
+        "type"?: string;
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "shadow-button": ShadowButton;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "shadow-button": LocalJSX.ShadowButton & JSXBase.HTMLAttributes<HTMLShadowButtonElement>;
         }
     }
 }
