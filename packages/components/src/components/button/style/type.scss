@@ -2,11 +2,11 @@
 
 .shadow-component__button {
   &.button-primary {
-    background-color: $primaryColor;
-    color: $primaryTextColor;
+    background-color: map-get($map: $themeColors, $key: primary);
+    color: map-get($map: $textColors, $key: primary);
     &:hover {
       background-color: #84c0ff;
-      border: solid 1px $secondaryColor;
+      border: solid 1px map-get($map: $themeColors, $key: secondary);
     }
   }
 }

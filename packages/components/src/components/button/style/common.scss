@@ -9,16 +9,16 @@
   min-height: 36px;
   cursor: pointer;
   outline: none;
-  border-radius: map-get($map: themeColors, $key: primary);
+  border-radius: map-get($map: $borderSize, $key: radius);
   padding: 9px 34px;
   font-size: 12px;
   line-height: 17px;
   border: solid 1px transparent;
-  background-color: $buttonBgColor;
+  background-color: map-get($map: $buttonColors, $key: bgColor);
   &:hover {
-    border: solid 1px $secondaryColor;
+    border: solid 1px map-get($map: $themeColors, $key: secondary);
   }
 
   //
-  transition: all $transitionDuration;
+  transition: all map-get($map: $normalTransition, $key: duration);
 }

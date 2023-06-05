@@ -1,5 +1,4 @@
-@import "./test.scss";
-
-.shadow-component__button {
-  display: block;
-}
+@import "common";
+@import "type";
+@import "disabled";
+@import "size";

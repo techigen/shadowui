@@ -26,7 +26,7 @@ export const config: Config = {
   plugins: [
     sass({
       injectGlobalPaths: [
-        'src/common/style/variables.scss',
+        'src/common/style/variables/index.scss',
       ]
     }),
     postcss({
