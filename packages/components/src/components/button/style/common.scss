@@ -1,11 +1,15 @@
 @use "../../../common/style/variables/index.scss" as *;
 
+:host {
+  display: block;
+}
+
 .shadow-component__button {
   min-width: 92px;
   min-height: 36px;
   cursor: pointer;
   outline: none;
-  border-radius: $borderRadius;
+  border-radius: map-get($map: themeColors, $key: primary);
   padding: 9px 34px;
   font-size: 12px;
   line-height: 17px;

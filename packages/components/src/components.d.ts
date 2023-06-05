@@ -26,8 +26,6 @@ export namespace Components {
     }
     interface ShadowButtonDemo {
     }
-    interface ShadowSelect {
-    }
 }
 declare global {
     interface HTMLShadowButtonElement extends Components.ShadowButton, HTMLStencilElement {
@@ -42,16 +40,9 @@ declare global {
         prototype: HTMLShadowButtonDemoElement;
         new (): HTMLShadowButtonDemoElement;
     };
-    interface HTMLShadowSelectElement extends Components.ShadowSelect, HTMLStencilElement {
-    }
-    var HTMLShadowSelectElement: {
-        prototype: HTMLShadowSelectElement;
-        new (): HTMLShadowSelectElement;
-    };
     interface HTMLElementTagNameMap {
         "shadow-button": HTMLShadowButtonElement;
         "shadow-button-demo": HTMLShadowButtonDemoElement;
-        "shadow-select": HTMLShadowSelectElement;
     }
 }
 declare namespace LocalJSX {
@@ -75,12 +66,9 @@ declare namespace LocalJSX {
     }
     interface ShadowButtonDemo {
     }
-    interface ShadowSelect {
-    }
     interface IntrinsicElements {
         "shadow-button": ShadowButton;
         "shadow-button-demo": ShadowButtonDemo;
-        "shadow-select": ShadowSelect;
     }
 }
 export { LocalJSX as JSX };
@@ -89,7 +77,6 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "shadow-button": LocalJSX.ShadowButton & JSXBase.HTMLAttributes<HTMLShadowButtonElement>;
             "shadow-button-demo": LocalJSX.ShadowButtonDemo & JSXBase.HTMLAttributes<HTMLShadowButtonDemoElement>;
-            "shadow-select": LocalJSX.ShadowSelect & JSXBase.HTMLAttributes<HTMLShadowSelectElement>;
         }
     }
 }

@@ -32,8 +32,7 @@ export class ShadowButton {
    * @returns
    */
   clickHandler = (e: MouseEvent) => {
-    const isDisabled = !!this.disabled;
-    if (isDisabled) {
+    if (!!this.disabled) {
       return;
     }
     this.onClick?.(e);
