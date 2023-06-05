@@ -1,0 +1,12 @@
+@use "../../../common/style/variables/index.scss";
+
+.shadow-component__button {
+  &.button-primary {
+    background-color: $primaryColor;
+    color: $primaryTextColor;
+    &:hover {
+      background-color: #84c0ff;
+      border: solid 1px $secondaryColor;
+    }
+  }
+}

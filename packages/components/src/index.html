@@ -8,15 +8,31 @@
 
   <script type="module" src="/build/shadow-ui.esm.js"></script>
   <script nomodule src="/build/shadow-ui.js"></script>
+  <style>
+    html,
+    body {
+      padding: 0;
+      margin: 0;
+      height: 1000vh;
+      width: 100%;
+      text-align: center;
+    }
+
+    #demo_area {
+      padding: 40px 15px;
+      margin: 0 auto;
+      text-align: left;
+      width: 760px;
+      height: 100%;
+      background-color: #eaeaea;
+    }
+  </style>
 </head>
 
 <body>
-  <shadow-button type="primary" onClickk="javascript: console.log('确认')" text="确认"></shadow-button>
-  <shadow-button type="default" onClick="javascript: console.log('取消')" text="取消"></shadow-button>
-  <shadow-button type="primary" onClick="javascript: console.log('确认')" text="disabled确认" disabled="true">
-  </shadow-button>
-  <shadow-button type="default" onClick="javascript: console.log('取消')" text="disabled取消" disabled="true">
-  </shadow-button>
+  <div id="demo_area">
+    <shadow-button-demo></shadow-button-demo>
+  </div>
 </body>
 
 </html>

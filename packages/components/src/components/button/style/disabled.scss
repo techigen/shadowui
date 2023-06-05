@@ -1,0 +1,13 @@
+@use "../../../common/style/variables/index.scss";
+.shadow-component__button {
+  &.disabled {
+    background-color: $buttonMuteBgColor;
+    border: solid 1px $buttonMuteBorderColor;
+    color: #969696;
+    cursor: not-allowed;
+    &:hover {
+      border: solid 1px $buttonMuteBorderColor;
+      background-color: #f5f5f5;
+    }
+  }
+}

@@ -1,12 +1,10 @@
-import { Component, Prop, Listen, h, Event } from '@stencil/core';
+import { Component, Prop, h } from '@stencil/core';
 import { componentClassPrefix } from '../../common';
+import { shadowButtonDefaults } from './index.contants';
 
 @Component({
   tag: 'shadow-button',
-  styleUrls: {
-    default: './style/default.scss',
-    primary: './style/primary.scss',
-  },
+  styleUrl: './style/index.scss',
   shadow: true,
 })
 export class ShadowButton {
@@ -14,43 +12,44 @@ export class ShadowButton {
    * button mode
    * options: default | primary
    */
-  @Prop() type: string;
-  /**
-   * button inner text
-   */
-  @Prop() text: string;
+  @Prop() type?: 'default' | 'primary' = shadowButtonDefaults.type;
   /**
    * button "disablity", when it is disabled, you can now click it
    */
-  @Prop() disabled: string;
+  @Prop() disabled?: string | boolean = shadowButtonDefaults.disabled;
+  /**
+   * button's click event
+   */
+  @Prop() onClick?: (event: MouseEvent) => void;
+  /**
+   * style prop
+   */
+  @Prop() css?: Record<string, string>;
 
-  @Event({
-    eventName: 'onClickk',
-    composed: true,
-    cancelable: true,
-    bubbles: true,
-  })
-  clickEvent: any;
-
-  @Listen('onClickk')
-  todoCompletedHandler(event: any) {
-    console.log('Received the custom todoCompleted event: ', event);
-  }
-
-  componentDidLoad() {
-    console.log(this, 'this');
-  }
+  /**
+   *
+   * @param e
+   * @returns
+   */
+  clickHandler = (e: MouseEvent) => {
+    const isDisabled = !!this.disabled;
+    if (isDisabled) {
+      return;
+    }
+    this.onClick?.(e);
+  };
 
   render() {
     return (
       <button
-        class={`radius-[4px] ${componentClassPrefix('button', {
+        class={componentClassPrefix('button', {
           [`button-${this.type}`]: true,
           disabled: !!this.disabled,
-        })}`}
+        })}
+        onClick={this.clickHandler}
+        style={this.css}
       >
-        {/* <slot></slot> */}
-        <span>{this.text}</span>
+        <slot></slot>
       </button>
     );
   }

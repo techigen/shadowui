@@ -8,22 +8,26 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface ShadowButton {
         /**
+          * style prop
+         */
+        "css"?: Record<string, string>;
+        /**
           * button "disablity", when it is disabled, you can now click it
          */
-        "disabled": string;
+        "disabled"?: string | boolean;
         /**
-          * button inner text
+          * button's click event
          */
-        "text": string;
+        "onClick"?: (event: MouseEvent) => void;
         /**
           * button mode options: default | primary
          */
-        "type": string;
+        "type"?: 'default' | 'primary';
     }
-}
-export interface ShadowButtonCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLShadowButtonElement;
+    interface ShadowButtonDemo {
+    }
+    interface ShadowSelect {
+    }
 }
 declare global {
     interface HTMLShadowButtonElement extends Components.ShadowButton, HTMLStencilElement {
@@ -32,28 +36,51 @@ declare global {
         prototype: HTMLShadowButtonElement;
         new (): HTMLShadowButtonElement;
     };
+    interface HTMLShadowButtonDemoElement extends Components.ShadowButtonDemo, HTMLStencilElement {
+    }
+    var HTMLShadowButtonDemoElement: {
+        prototype: HTMLShadowButtonDemoElement;
+        new (): HTMLShadowButtonDemoElement;
+    };
+    interface HTMLShadowSelectElement extends Components.ShadowSelect, HTMLStencilElement {
+    }
+    var HTMLShadowSelectElement: {
+        prototype: HTMLShadowSelectElement;
+        new (): HTMLShadowSelectElement;
+    };
     interface HTMLElementTagNameMap {
         "shadow-button": HTMLShadowButtonElement;
+        "shadow-button-demo": HTMLShadowButtonDemoElement;
+        "shadow-select": HTMLShadowSelectElement;
     }
 }
 declare namespace LocalJSX {
     interface ShadowButton {
         /**
+          * style prop
+         */
+        "css"?: Record<string, string>;
+        /**
           * button "disablity", when it is disabled, you can now click it
          */
-        "disabled"?: string;
-        "onOnClickk"?: (event: ShadowButtonCustomEvent<any>) => void;
+        "disabled"?: string | boolean;
         /**
-          * button inner text
+          * button's click event
          */
-        "text"?: string;
+        "onClick"?: (event: MouseEvent) => void;
         /**
           * button mode options: default | primary
          */
-        "type"?: string;
+        "type"?: 'default' | 'primary';
+    }
+    interface ShadowButtonDemo {
+    }
+    interface ShadowSelect {
     }
     interface IntrinsicElements {
         "shadow-button": ShadowButton;
+        "shadow-button-demo": ShadowButtonDemo;
+        "shadow-select": ShadowSelect;
     }
 }
 export { LocalJSX as JSX };
@@ -61,6 +88,8 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "shadow-button": LocalJSX.ShadowButton & JSXBase.HTMLAttributes<HTMLShadowButtonElement>;
+            "shadow-button-demo": LocalJSX.ShadowButtonDemo & JSXBase.HTMLAttributes<HTMLShadowButtonDemoElement>;
+            "shadow-select": LocalJSX.ShadowSelect & JSXBase.HTMLAttributes<HTMLShadowSelectElement>;
         }
     }
 }
