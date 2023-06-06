@@ -1,4 +1,4 @@
-@use "../../../common/style/variables/index.scss" as *;
+@use "../../../common/style/variables/index.scss";
 
 :host {
   display: block;
@@ -8,7 +8,6 @@
   min-width: 92px;
   min-height: 36px;
   cursor: pointer;
-  outline: none;
   border-radius: map-get($map: $borderSize, $key: radius);
   padding: 9px 34px;
   font-size: 12px;
@@ -20,5 +19,6 @@
   }
 
   //
-  transition: all map-get($map: $normalTransition, $key: duration);
+  transition-property: background-color, border-color, color, outline;
+  transition-duration: map-get($map: $normalTransition, $key: duration);
 }

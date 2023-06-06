@@ -8,5 +8,8 @@
       background-color: #84c0ff;
       border: solid 1px map-get($map: $themeColors, $key: secondary);
     }
+    &:active {
+      outline: 2px solid gray;
+    }
   }
 }

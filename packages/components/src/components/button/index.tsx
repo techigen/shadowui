@@ -43,7 +43,8 @@ export class ShadowButton {
       <button
         class={componentClassPrefix('button', {
           [`button-${this.type}`]: true,
-          disabled: !!this.disabled,
+          'with-wave': true,
+          'disabled': !!this.disabled,
         })}
         onClick={this.clickHandler}
         style={this.css}
