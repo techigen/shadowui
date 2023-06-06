@@ -1,6 +1,6 @@
 import { Component, Prop, h } from '@stencil/core';
 import { componentClassPrefix } from '../../common';
-import { shadowButtonDefaults } from './index.contants';
+import { shadowButtonDefaults } from './index.constants';
 
 @Component({
   tag: 'shadow-button',
@@ -40,17 +40,18 @@ export class ShadowButton {
 
   render() {
     return (
-      <button
-        class={componentClassPrefix('button', {
-          [`button-${this.type}`]: true,
-          'with-wave': true,
-          'disabled': !!this.disabled,
-        })}
-        onClick={this.clickHandler}
-        style={this.css}
-      >
-        <slot></slot>
-      </button>
+      <shadow-wave>
+        <button
+          class={componentClassPrefix('button', {
+            [`button-${this.type}`]: true,
+            'disabled': !!this.disabled,
+          })}
+          onClick={this.clickHandler}
+          style={this.css}
+        >
+          <slot></slot>
+        </button>
+      </shadow-wave>
     );
   }
 }

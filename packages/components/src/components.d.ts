@@ -26,6 +26,12 @@ export namespace Components {
     }
     interface ShadowButtonDemo {
     }
+    interface ShadowWave {
+        /**
+          * button mode options: default | primary
+         */
+        "type"?: 'default' | 'primary';
+    }
 }
 declare global {
     interface HTMLShadowButtonElement extends Components.ShadowButton, HTMLStencilElement {
@@ -40,9 +46,16 @@ declare global {
         prototype: HTMLShadowButtonDemoElement;
         new (): HTMLShadowButtonDemoElement;
     };
+    interface HTMLShadowWaveElement extends Components.ShadowWave, HTMLStencilElement {
+    }
+    var HTMLShadowWaveElement: {
+        prototype: HTMLShadowWaveElement;
+        new (): HTMLShadowWaveElement;
+    };
     interface HTMLElementTagNameMap {
         "shadow-button": HTMLShadowButtonElement;
         "shadow-button-demo": HTMLShadowButtonDemoElement;
+        "shadow-wave": HTMLShadowWaveElement;
     }
 }
 declare namespace LocalJSX {
@@ -66,9 +79,16 @@ declare namespace LocalJSX {
     }
     interface ShadowButtonDemo {
     }
+    interface ShadowWave {
+        /**
+          * button mode options: default | primary
+         */
+        "type"?: 'default' | 'primary';
+    }
     interface IntrinsicElements {
         "shadow-button": ShadowButton;
         "shadow-button-demo": ShadowButtonDemo;
+        "shadow-wave": ShadowWave;
     }
 }
 export { LocalJSX as JSX };
@@ -77,6 +97,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "shadow-button": LocalJSX.ShadowButton & JSXBase.HTMLAttributes<HTMLShadowButtonElement>;
             "shadow-button-demo": LocalJSX.ShadowButtonDemo & JSXBase.HTMLAttributes<HTMLShadowButtonDemoElement>;
+            "shadow-wave": LocalJSX.ShadowWave & JSXBase.HTMLAttributes<HTMLShadowWaveElement>;
         }
     }
 }

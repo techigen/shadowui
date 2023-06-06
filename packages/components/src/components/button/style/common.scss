@@ -1,12 +1,8 @@
 @use "../../../common/style/variables/index.scss";
 
-:host {
-  display: block;
-}
-
 .shadow-component__button {
-  min-width: 92px;
-  min-height: 36px;
+  width: 92px;
+  height: 36px;
   cursor: pointer;
   border-radius: map-get($map: $borderSize, $key: radius);
   padding: 9px 34px;
