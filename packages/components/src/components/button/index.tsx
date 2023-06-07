@@ -1,4 +1,4 @@
-import { Component, Prop, h } from '@stencil/core';
+import { Component, Prop, Host, h } from '@stencil/core';
 import { componentClassPrefix } from '../../common';
 import { shadowButtonDefaults } from './index.constants';
 
@@ -40,16 +40,17 @@ export class ShadowButton {
 
   render() {
     return (
-      <shadow-wave>
+      <shadow-wave type={this.type} disabled={this.disabled}>
         <button
           class={componentClassPrefix('button', {
             [`button-${this.type}`]: true,
-            'disabled': !!this.disabled,
+            disabled: !!this.disabled,
+            md: true,
           })}
           onClick={this.clickHandler}
           style={this.css}
         >
-          <slot></slot>
+          <slot />
         </button>
       </shadow-wave>
     );

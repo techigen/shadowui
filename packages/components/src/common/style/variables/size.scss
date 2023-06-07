@@ -2,9 +2,16 @@
 
 $borderSize: (
   radius: 4px,
+  width: 1px,
 ) !default;
+
 
 $waveSize: (
   horizonWaveWidth: 4px,
   verticalWaveHeight: 2px,
+) !default;
+
+$buttonSize: (
+  width: 92px,
+  height: 36px
 ) !default;

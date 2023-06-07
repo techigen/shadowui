@@ -27,9 +27,8 @@ export namespace Components {
     interface ShadowButtonDemo {
     }
     interface ShadowWave {
-        /**
-          * button mode options: default | primary
-         */
+        "css"?: Record<string, string>;
+        "disabled"?: string | boolean;
         "type"?: 'default' | 'primary';
     }
 }
@@ -80,9 +79,8 @@ declare namespace LocalJSX {
     interface ShadowButtonDemo {
     }
     interface ShadowWave {
-        /**
-          * button mode options: default | primary
-         */
+        "css"?: Record<string, string>;
+        "disabled"?: string | boolean;
         "type"?: 'default' | 'primary';
     }
     interface IntrinsicElements {

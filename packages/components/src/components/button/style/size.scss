@@ -1,5 +1,23 @@
+@use "../../../common/style/variables/index.scss";
 .shadow-component__button {
   &.small {
     padding: 6px 26px;
+  }
+
+  $sizes: "md"
+      map-get(
+        $map: $buttonSize,
+        $key: width,
+      )
+      map-get(
+        $map: $buttonSize,
+        $key: height,
+      ),
+    "lg" 92px 36px;
+  @each $name, $width, $height in $sizes {
+    &.#{$name} {
+      height: $height;
+      width: $width;
+    }
   }
 }
